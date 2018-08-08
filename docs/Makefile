@@ -20,7 +20,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 apidoc:
-	sphinx-apidoc --separate --force --module-first -H "django-static-templates"  -o api ../static-templates
+	sphinx-apidoc --separate --force --module-first -H "django-static-templates"  -o api ../static_templates
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
