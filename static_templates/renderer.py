@@ -66,7 +66,8 @@ class Renderer(object):
         self.log('Rendering template "{0}"'.format(template_name))
         return render_to_string(
             template_name,
-            RequestContext(request, self.get_template_context()).flatten()
+            context=RequestContext(request, self.get_template_context()).flatten(),
+            request=request,
         )
 
     def get_static_file_path(self):
