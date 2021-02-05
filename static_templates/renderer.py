@@ -3,6 +3,7 @@ import os
 
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
+from django.contrib.sessions.backends.signed_cookies import SessionStore
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.test.client import RequestFactory
@@ -60,7 +61,7 @@ class Renderer(object):
         # apply all context processors (for menus, etc.)
         request = RequestFactory(HTTP_HOST=settings.ALLOWED_HOSTS[0].strip('.')).get('/')
         request.user = AnonymousUser()
-        request.session = {}
+        request.session = SessionStore()
 
         template_name = self.get_template_name()
         self.log('Rendering template "{0}"'.format(template_name))
