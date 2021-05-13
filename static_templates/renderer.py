@@ -99,9 +99,7 @@ def get_renderer(path=None):
     is used.
     """
     path = path or getattr(
-        settings,
-        'STATIC_TEMPLATES_RENDERER',
-        'static_templates.renderer.Renderer'
+        settings, 'STATIC_TEMPLATES_RENDERER', 'static_templates.renderer.Renderer'
     )
 
     module_name, class_name = path.rsplit('.', 1)

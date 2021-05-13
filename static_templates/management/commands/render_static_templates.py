@@ -6,7 +6,6 @@ from ...renderer import get_renderer
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **options):
         # Acrtivate language to ensure we get the translation right.
         translation.activate(settings.LANGUAGE_CODE)
